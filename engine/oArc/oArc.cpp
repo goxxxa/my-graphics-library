@@ -1,5 +1,6 @@
 #include <iostream>
 #include "oArc.h"
+#include "../../API/VSTUB.H"
 
 OArc::OArc(int centerX, int centerY, int radius, float startAngle, float sweepAngle, Color color) : Arc_(centerX,
                                                                                                          centerY,
@@ -15,6 +16,6 @@ void OArc::draw(bool flag) {
 }
 
 const char *OArc::who() {
-    std::cout << "Hi, I'm OArc №" << OArc::number << std::endl;
+    std::vc << "Hi, I'm OArc\n";
     return "Hi, I'm OArc";
 }

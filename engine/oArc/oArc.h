@@ -4,7 +4,7 @@
 #include "../arc/arc.h"
 #include "../object/object.h"
 
-class OArc : public Arc_, public Object{
+class OArc : public Arc_, virtual public Object{
 public:
     explicit OArc(int centerX = 0, int centerY = 0, int radius = 0, float startAngle = 0, float sweepAngle = 0,
                   Color color = DEFAULT_COLOR);

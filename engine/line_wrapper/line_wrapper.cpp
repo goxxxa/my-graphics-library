@@ -6,5 +6,9 @@ LineWrapper::~LineWrapper() = default;
 
 void LineWrapper::draw(bool flag) {
     Line::draw(flag);
+}
+
+const char *LineWrapper::who() {
+    return "I'm LineWrapper";
 };
 

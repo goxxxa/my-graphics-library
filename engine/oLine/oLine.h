@@ -4,7 +4,7 @@
 #include "../line/line.h"
 #include "../object/object.h"
 
-class OLine : public Line, public Object{
+class OLine : public Line, virtual public Object{
 public:
     explicit OLine(int startX, int startY, int endX, int endY, Color color);
     ~OLine();

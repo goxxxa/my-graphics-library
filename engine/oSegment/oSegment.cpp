@@ -1,4 +1,5 @@
 #include "oSegment.h"
+#include "../../API/VSTUB.H"
 #include <cmath>
 
 using namespace std;
@@ -22,9 +23,10 @@ OSegment::OSegment(int inputStartX, int inputStartY, int inputEndX, int inputEnd
 
 OSegment::~OSegment() = default;
 
-//const char *OSegment::who() {
-//    return "OSegment";
-//}
+const char *OSegment::who() {
+    std::vc << "Hi, I'm OSegment\n";
+    return "Hi, I'm OSegment";
+}
 
 void OSegment::draw(bool flag) {
     OLine::draw(flag);

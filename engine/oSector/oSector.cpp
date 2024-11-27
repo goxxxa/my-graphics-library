@@ -1,10 +1,6 @@
 #include "oSector.h"
-#include "../oSegment/oSegment.h"
-#include "../line_wrapper/line_wrapper.h"
 #include "../../API/VSTUB.H"
-#include <cmath>
 
-using namespace std;
 
 OSector::OSector(int startX, int startY, int endX, int endY, Color color) : OSegment(startX, startY, endX, endY, color),
                                                                             LineWrapper(startX, startY, endX, endY,
@@ -25,5 +21,6 @@ void OSector::draw(bool flag) {
 }
 
 const char *OSector::who() {
+    std::vc << "Hi, I'm OSector\n";
     return "Hi, I'm OSector";
 }

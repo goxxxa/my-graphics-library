@@ -15,8 +15,8 @@ namespace std {
 #endif
 
     DECLAR (int, Height, 480);
-    DECLAR (int, WidthC, 0); // 400
-    DECLAR (int, WidthG, 720); // 400
+    DECLAR (int, WidthC, 200); // 400
+    DECLAR (int, WidthG, 600); // 400
     DECLAR (int, CellH, 13);
     DECLAR (COLORREF, TextColor, RGB(0, 192, 0));
     DECLAR (COLORREF, GraphColor, RGB(255, 255, 0));

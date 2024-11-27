@@ -16,5 +16,6 @@ Arc_::~Arc_() = default;
 
 void Arc_::draw(bool flag) {
     flag ? setcolor(color.r, color.g, color.b) : setcolor(0, 0, 0);
-    drawarc(centerX + x0, centerY + y0, radius, startAngle, sweepAngle);
+    putarc(centerX + x0, centerY + y0, radius, startAngle, sweepAngle);
+//    drawarc(centerX + x0, centerY + y0, radius, startAngle, sweepAngle);
 }

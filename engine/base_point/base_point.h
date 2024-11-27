@@ -9,7 +9,7 @@ protected:
     Color color;
 
 public:
-    explicit BasePoint(int inputX = 0, int inputY = 0, Color inputColor = DEFAULT_COLOR);
+    BasePoint(int inputX = 0, int inputY = 0, Color inputColor = DEFAULT_COLOR);
     ~BasePoint();
 
     void move(int dX, int dY);

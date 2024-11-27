@@ -6,7 +6,7 @@ BasePoint::BasePoint(int inputX, int inputY, Color inputColor) {
     color = inputColor;
 }
 
-BasePoint::~BasePoint() = default;
+BasePoint::~BasePoint() {};
 
 void BasePoint::move(int dX, int dY) {
     draw(false);

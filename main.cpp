@@ -13,83 +13,77 @@
 #include <chrono>
 #include <thread>
 #include <cmath>
+#include <mutex>
+#include <condition_variable>
 
-#define WIDTH 720
-#define HEIGHT 480
-#define SIZE 30
 
 namespace std {
+
 
     int main() {
 
         int movementDelta = 5;
         auto duration = std::chrono::microseconds(1000);
-        const int numberOfObjects = 2;
+        const int numberOfObjects = 4;
 
+        OLine oLine = OLine(100, 100, 110, 150, GREEN);
+        OArc oArc = OArc(100, 100, 30, 0, 3.14, BLUE);
+        OSegment oSegment = OSegment(10, 30, 70, 80, YELLOW);
+        OSector oSector = OSector(130, 150, 180, 150, RED);
 
-        Line line = Line(50, 50, 70, 70, BLUE);
-        Arc_ arc = Arc_(50, 50, 30, 0, 3.14, BLUE);
-        OLine oLine = OLine(100, 100, 100, 150, YELLOW);
-        OArc oArc = OArc(100, 100, 30, 0, 3.14, YELLOW);
-        OSegment oSegment = OSegment(30, 50, 90, 80, YELLOW);
-        OSector oSector = OSector(30, 50, 130, 50, YELLOW);
-        Rectangle_ rect = Rectangle_(10, 40, 40, 70, YELLOW);
         BasePoint *objects[numberOfObjects];
 
-        objects[0] = &line;
-        objects[1] = &rect;
-//        objects[2] = &oLine;
-//        objects[3] = &oArc;
-//        objects[4] = &oSegment;
-//        objects[5] = &oSector;
+        objects[0] = &oLine;
+        objects[1] = &oArc;
+        objects[2] = &oSegment;
+        objects[3] = &oSector;
 
+        for (size_t i = 0; i < numberOfObjects; ++i) {
+            auto *object = dynamic_cast<Object *>(objects[i]);
+            if (object) {
+                object->who();
+            }
 
+        }
 
         while (true) {
             if (GetAsyncKeyState(VK_LEFT) != 0) {
                 for (int i = 0; i < numberOfObjects; ++i) {
-                    objects[i]->move(-movementDelta, 0);
-                    //std::this_thread::sleep_for(duration);
+                    if (objects[i] != nullptr) {
+                        objects[i]->move(-movementDelta, 0);
+                    }
+                    std::this_thread::sleep_for(duration);
                 }
                 vgetchar();
             } else if (GetAsyncKeyState(VK_RIGHT) != 0) {
                 for (int i = 0; i < numberOfObjects; ++i) {
-                    objects[i]->move(movementDelta, 0);
-                    //std::this_thread::sleep_for(duration);
+                    if (objects[i] != nullptr) {
+                        objects[i]->move(movementDelta, 0);
+                    }
+                    std::this_thread::sleep_for(duration);
                 }
                 vgetchar();
             } else if (GetAsyncKeyState(VK_UP) != 0) {
                 for (int i = 0; i < numberOfObjects; ++i) {
-                    objects[i]->move(0, -movementDelta);
-                    //std::this_thread::sleep_for(duration);
+                    if (objects[i] != nullptr) {
+                        objects[i]->move(0, -movementDelta);
+                    }
+                    std::this_thread::sleep_for(duration);
+
                 }
                 vgetchar();
             } else if (GetAsyncKeyState(VK_DOWN) != 0) {
                 for (int i = 0; i < numberOfObjects; ++i) {
-                    objects[i]->move(0, movementDelta);
-                    //std::this_thread::sleep_for(duration);
+                    if (objects[i] != nullptr) {
+                        objects[i]->move(0, movementDelta);
+                    }
+                    std::this_thread::sleep_for(duration);
                 }
                 vgetchar();
             }
+
         }
 
-//        setcolor(0, 255, 255);
-//        putline(0, 0, 400, 400);
-        vgetchar();
 
-        // line.move();
-//
-//        setcolor(255, 0, 255);
-//        putarc(100, 100, 50, 1.5, 2.5);
-//        vgetchar();
-//
-//        setcolor(0, 0, 0);
-//        putarc(100, 100, 50, 1.5, 2.5);
-//        vgetchar();
-//
-//        setcolor(255, 0, 255);
-//        putarc(120, 120, 50, 1.5, 2.5);
-        vgetchar();
-        // return 0;
     }
 }
